@@ -14,20 +14,21 @@
    "lr": 0.001,
    "alpha": 1,
    "verbose": true,
+   "negatives": null,
 
    "min_counts": 0,
    "max_counts": 99999999,
 
-   "training_chroms": ["chr2", "chr3", "chr4", "chr5", "chr6", "chr7", 
+   "training_chroms": ["chr5", "chr6", "chr7", 
       "chr9", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", 
       "chr18", "chr19", "chr20", "chr21", "chr22", "chrX"],
-   "validation_chroms": ["chr8", "chr10"],
+   "validation_chroms": ["chr2", "chr3", "chr4"],
 
-   "sequences":"/home/manglada/databases/data/GENCODE/GRCh38.p13.genome.fa",
-   "loci":"../../examples/ENCSR000AKO.bed",
+   "sequences":"/home/haotingc/scratch_mcieslik/Lyra_model/genome/hg38.fa",
+   "loci":"/home/haotingc/scratch_mcieslik/Lyra_model/data/SI_38975_TC32_DMSO_PROX1NarrowPeakNoBL.bed",
    "signals":[
-      "../../examples/ENCSR000AKO_plus.bigWig", 
-      "../../examples/ENCSR000AKO_minus.bigWig"
+      "/home/haotingc/scratch_mcieslik/Lyra_model/data/SI_38975_TC32_DMSO_PROX1.bw",
+      "/home/haotingc/scratch_mcieslik/Lyra_model/data/SI_38975_TC32_DMSO_PROX1.bw"
    ],
    "random_state": 0
 }

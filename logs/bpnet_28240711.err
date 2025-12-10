@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/haotingc/.conda/envs/BPNet-env/bin/bpnet", line 30, in <module>
+    from tangermeme.utils import example_to_fasta_coords
+ImportError: cannot import name 'example_to_fasta_coords' from 'tangermeme.utils' (/home/haotingc/.conda/envs/BPNet-env/lib/python3.10/site-packages/tangermeme/utils.py)

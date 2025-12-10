@@ -85,5 +85,5 @@ def log1pMSELoss(log_predicted_counts, true_counts):
 		and all other dimensions.
 	"""
 
-	log_true = torch.log(true_counts+1)
+	log_true = torch.log(true_counts+151)
 	return torch.mean(torch.square(log_true - log_predicted_counts), dim=-1)

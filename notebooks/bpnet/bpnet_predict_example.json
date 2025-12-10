@@ -3,10 +3,14 @@
    "in_window":2114,
    "out_window":1000,
    "verbose":true,
-   "chroms":["chr8", "chr10"],
+   "chroms":["chr1", "chr8", "chr10"],
    "model":"example.final.torch",
-   "sequences":"/home/manglada/databases/data/GENCODE/GRCh38.p13.genome.fa",
-   "loci":"../../examples/ENCSR000AKO.bed",
+   "sequences":"/home/haotingc/scratch_mcieslik/Lyra_model/genome/hg38.fa",
+   "loci":"/home/haotingc/scratch_mcieslik/Lyra_model/data/SI_38975_TC32_DMSO_PROX1NarrowPeakNoBL.bed",
    "profile_filename": "y_profile.npz",
-   "counts_filename": "y_counts.npz"
+   "counts_filename": "y_counts.npz",
+   "signals":[
+      "/home/haotingc/scratch_mcieslik/Lyra_model/data/SI_38975_TC32_DMSO_PROX1.bw",
+      "/home/haotingc/scratch_mcieslik/Lyra_model/data/SI_38975_TC32_DMSO_PROX1.bw"
+   ]
 }

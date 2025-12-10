@@ -414,7 +414,7 @@ def calculate_performance_measures(logps, true_counts, pred_log_counts,
 
 
 	# Count Performance Measures
-	true_log_counts = torch.log(true_counts.sum(dim=-1)+1)
+	true_log_counts = torch.log(true_counts.sum(dim=-1)+151)
 
 	if measures is None or 'count_pearson' in measures:
 		measures_['count_pearson'] = pearson_corr(pred_log_counts.T, 

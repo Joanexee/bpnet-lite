@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/home/haotingc/.conda/envs/BPNet-env/bin/bpnet", line 551, in <module>
+    training_data = PeakGenerator(
+  File "/gpfs/accounts/mcieslik_root/mcieslik0/haotingc/bpnet-lite/bpnetlite/io.py", line 213, in PeakGenerator
+    X_peaks = extract_loci(loci=peaks, sequences=sequences, signals=signals, 
+  File "/gpfs/accounts/mcieslik_root/mcieslik0/haotingc/tangermeme/tangermeme/io.py", line 362, in extract_loci
+    loci = _interleave_loci(loci, chroms, summits=summits)
+  File "/gpfs/accounts/mcieslik_root/mcieslik0/haotingc/tangermeme/tangermeme/io.py", line 80, in _interleave_loci
+    df = pandas.read_csv(df, sep='\t', usecols=cols, 
+  File "/home/haotingc/.conda/envs/BPNet-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/haotingc/.conda/envs/BPNet-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 626, in _read
+    return parser.read(nrows)
+  File "/home/haotingc/.conda/envs/BPNet-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1923, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+  File "/home/haotingc/.conda/envs/BPNet-env/lib/python3.10/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 838, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 921, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 983, in pandas._libs.parsers.TextReader._convert_column_data
+pandas.errors.ParserError: Too many columns specified: expected 4 and found 3

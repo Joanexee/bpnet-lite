@@ -5,8 +5,8 @@
    "count_output_bias": true,
    "name": "example",
    "batch_size": 64,
-   "in_window": 2114,
-   "out_window": 1000,
+   "in_window": 1000,
+   "out_window": 488,
    "max_jitter": 128,
    "reverse_complement": true,
    "max_epochs": 50,
@@ -21,20 +21,16 @@
    "min_counts": 0,
    "max_counts": 99999999,
 
-   "training_chroms": ["chr2", "chr3", "chr4", "chr5", "chr6", "chr7", 
+   "training_chroms": ["chr5", "chr6", "chr7", 
       "chr9", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", 
       "chr18", "chr19", "chr20", "chr21", "chr22", "chrX"],
-   "validation_chroms": ["chr8", "chr10"],
+   "validation_chroms": ["chr2", "chr3", "chr4"],
 
-   "sequences":"hg38.fa",
-   "loci":"peaks.bed.gz",
+   "sequences":"/home/haotingc/scratch_mcieslik/Lyra_model/genome/hg38.fa",
+   "loci":"/home/haotingc/scratch_mcieslik/Lyra_model/data/PROX1_peaks_summit_1000bp.bed",
    "signals":[
-      "input.plus.bigWig", 
-      "input.minus.bigWig"
+      "/home/haotingc/scratch_mcieslik/Lyra_model/data/SI_38975_TC32_DMSO_PROX1.bw"
    ],
-   "controls":[
-      "control.plus.bigWig", 
-      "control.minus.bigWig"
-   ],
+   "controls":null,
    "random_state": 0
 }

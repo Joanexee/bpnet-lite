@@ -286,30 +286,55 @@ class BPNet(torch.nn.Module):
 			length.
 		"""
 
+		# start, end = self.trimming, X.shape[2] - self.trimming
+
+		# X = self.irelu(self.iconv(X))
+		# for i in range(self.n_layers):
+		# 	X_conv = self.rrelus[i](self.rconvs[i](X))
+		# 	X = torch.add(X, X_conv)
+
+		# if X_ctl is None:
+		# 	X_w_ctl = X
+		# else:
+		# 	X_w_ctl = torch.cat([X, X_ctl], dim=1)
+
+		# y_profile = self.fconv(X_w_ctl)[:, :, start:end]
+
+		# # counts prediction
+		# X = torch.mean(X[:, :, start-37:end+37], dim=2)
+		# if X_ctl is not None:
+		# 	X_ctl = torch.sum(X_ctl[:, :, start-37:end+37], dim=(1, 2))
+		# 	X_ctl = X_ctl.unsqueeze(-1)
+		# 	X = torch.cat([X, torch.log(X_ctl+151)], dim=-1)
+
+		# y_counts = self.linear(X).reshape(X.shape[0], 1)
+		# return y_profile, y_counts
+
 		start, end = self.trimming, X.shape[2] - self.trimming
-
-		X = self.irelu(self.iconv(X))
+	
+		X = self.iconv(X)
 		for i in range(self.n_layers):
-			X_conv = self.rrelus[i](self.rconvs[i](X))
+			X_a = self.rrelus[i](X)
+			X_conv = self.rconvs[i](X_a)
 			X = torch.add(X, X_conv)
-
+		X = self.irelu(X)
+	
 		if X_ctl is None:
 			X_w_ctl = X
 		else:
 			X_w_ctl = torch.cat([X, X_ctl], dim=1)
-
+	
 		y_profile = self.fconv(X_w_ctl)[:, :, start:end]
-
+	
 		# counts prediction
 		X = torch.mean(X[:, :, start-37:end+37], dim=2)
 		if X_ctl is not None:
-			X_ctl = torch.sum(X_ctl[:, :, start-37:end+37], dim=(1, 2))
+			X_ctl = torch.sum(X_ctl[:, :, start:end], dim=(1, 2))
 			X_ctl = X_ctl.unsqueeze(-1)
-			X = torch.cat([X, torch.log(X_ctl+1)], dim=-1)
-
+			X = torch.cat([X, torch.log(X_ctl+151)], dim=-1)
+	
 		y_counts = self.linear(X).reshape(X.shape[0], 1)
 		return y_profile, y_counts
-
 
 	def fit(self, training_data, optimizer, scheduler=None, X_valid=None, 
 		X_ctl_valid=None, y_valid=None, max_epochs=100, batch_size=64, 
@@ -800,7 +825,7 @@ class BasePairNet(torch.nn.Module):
 		if X_ctl is not None:
 			X_ctl = torch.sum(X_ctl[:, :, start:end], dim=(1, 2))
 			X_ctl = X_ctl.unsqueeze(-1)
-			X = torch.cat([X, torch.log(X_ctl+2)], dim=-1)
+			X = torch.cat([X, torch.log(X_ctl+151)], dim=-1)
 	
 		y_counts = self.linear(X).reshape(X.shape[0], 1)
 		return y_profile, y_counts
